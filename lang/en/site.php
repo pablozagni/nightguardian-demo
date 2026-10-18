@@ -21,13 +21,17 @@ return [
     ],
 
     'hero' => [
-        'eyebrow' => 'Open source · Self-hosted · MIT',
+        'eyebrow' => 'Open source · MIT',
         'title' => 'Your apps break at 3 AM. You find out before your customers do.',
         'subtitle' => 'NightGuardian is a free error and health monitor you run on your own server. It groups errors into issues, tells you only when something is new, comes back or spikes, and gives your users a friendly error page with a code your support team can search.',
         'cta_try' => 'Try it live',
-        'cta_github' => 'View on GitHub',
         'cta_panel' => 'Open the demo panel',
         'note' => 'No sign-up. The demo panel is read-only and resets every night.',
+    ],
+
+    'github' => [
+        'view' => 'View on GitHub',
+        'stars' => '{0} no stars|{1} :count star on GitHub|[2,*] :count stars on GitHub',
     ],
 
     'problem' => [
@@ -92,6 +96,9 @@ return [
             ['title' => 'Paste two lines in .env', 'text' => 'The panel shows them (once) when you create a token. Then run the test command and break something.'],
         ],
         'docker' => 'Or try it with Docker',
+        'repo_collector' => 'Collector on GitHub',
+        'repo_sdk' => 'Laravel SDK on GitHub',
+        'repo_config' => 'SDK configuration reference',
         'guide' => 'Production guide',
     ],
 

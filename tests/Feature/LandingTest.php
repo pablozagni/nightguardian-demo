@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\GitHubStars;
 use App\Support\Qr;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -227,3 +228,50 @@ it('runs the queue and the scheduler without a console', function () {
     $this->post('/demo/run-queue')->assertSessionHas('result.title', 'Queue processed');
     $this->post('/demo/run-scheduler')->assertSessionHas('result.title', 'Scheduler ran');
 });
+
+// --- open source: GitHub button, stars and repository links -----------------------------------------------------------
+
+it('shows the Open source label with a View on GitHub button in the header and in the hero', function (string $locale, string $label) {
+    $html = $this->get('/'.$locale)->assertOk()->assertSee('Open source · MIT')->assertSee($label)->getContent();
+
+    // header (desktop nav + mobile menu) and hero
+    expect(substr_count($html, 'class="btn btn-gh btn-sm"'))->toBe(3)
+        ->and($html)->toContain('<div class="hero-tag">')
+        ->and($html)->toContain('class="gh-icon"')
+        ->and($html)->toContain('href="https://github.com/pablozagni/nightguardian"');
+})->with([['en', 'View on GitHub'], ['es', 'Ver en GitHub']]);
+
+it('links every repository from the install section', function () {
+    $html = $this->get('/en')->assertOk()->getContent();
+    $install = substr($html, (int) strpos($html, 'id="install"'), 6000);
+
+    expect($install)->toContain('https://github.com/pablozagni/nightguardian"')
+        ->toContain('https://github.com/pablozagni/nightguardian-laravel"')
+        ->toContain('https://github.com/pablozagni/nightguardian-laravel/blob/main/docs/configuration.md');
+});
+
+it('shows the star count fetched on the server and caches it', function () {
+    config(['demo.github_stars' => true]);
+    Http::fake(['api.github.com/*' => Http::response(['stargazers_count' => 1234])]);
+
+    $this->get('/en')->assertSee('★ 1.2k', false)->assertSee('1234 stars on GitHub');
+    $this->get('/es')->assertSee('★ 1.2k', false);
+
+    Http::assertSentCount(1);
+});
+
+it('hides the star count when GitHub does not answer and keeps the last good number', function () {
+    config(['demo.github_stars' => true]);
+    Http::fake(['api.github.com/*' => Http::response([], 403)]);
+
+    $this->get('/en')->assertOk()->assertSee('View on GitHub')->assertDontSee('★');
+
+    Cache::forget('github.stars.'.config('demo.github_repo'));
+    Cache::forever('github.stars.'.config('demo.github_repo').'.last', 987);
+
+    $this->get('/en')->assertSee('★ 987', false);
+});
+
+it('formats star counts', function (int $stars, string $text) {
+    expect(GitHubStars::format($stars))->toBe($text);
+})->with([[7, '7'], [950, '950'], [1000, '1k'], [1234, '1.2k'], [9999, '10k'], [15300, '15k']]);

@@ -27,6 +27,10 @@ return [
     'sponsor_github_url' => env('NIGHTGUARDIAN_SPONSOR_GITHUB_URL'),
     'donate_mp_url' => env('NIGHTGUARDIAN_DONATE_MP_URL'),
 
+    // The repository whose star count the landing page shows next to "View on GitHub" (fetched server-side and cached for an hour).
+    'github_repo' => env('DEMO_GITHUB_REPO') ?: 'pablozagni/nightguardian',
+    'github_stars' => (bool) env('DEMO_GITHUB_STARS', true),
+
     // The public address of this site (canonical links, Open Graph, sitemap).
     'site_url' => env('NIGHTGUARDIAN_SITE_URL') ?: 'https://nightguardian.com.ar',
 ];

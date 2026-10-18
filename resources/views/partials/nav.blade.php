@@ -19,6 +19,7 @@
             @foreach ($links as $href => $label)
                 <a href="{{ $href }}">{{ $label }}</a>
             @endforeach
+            @include('partials.github-button', ['class' => 'btn-sm'])
             <div class="lang" role="group" aria-label="{{ __('site.nav.language') }}">
                 <a href="{{ route('landing', 'en') }}" hreflang="en" @if ($locale === 'en') aria-current="true" @endif>EN</a>
                 <a href="{{ route('landing', 'es') }}" hreflang="es" @if ($locale === 'es') aria-current="true" @endif>ES</a>
@@ -33,6 +34,7 @@
                     <a href="{{ $href }}">{{ $label }}</a>
                 @endforeach
                 <a href="{{ route('try') }}"><strong>{{ __('site.nav.try') }}</strong></a>
+                @include('partials.github-button', ['class' => 'btn-sm'])
                 <div class="lang" role="group" aria-label="{{ __('site.nav.language') }}" style="margin:.4rem .5rem">
                     <a href="{{ route('landing', 'en') }}" hreflang="en" @if ($locale === 'en') aria-current="true" @endif>EN</a>
                     <a href="{{ route('landing', 'es') }}" hreflang="es" @if ($locale === 'es') aria-current="true" @endif>ES</a>

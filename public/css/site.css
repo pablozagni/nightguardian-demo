@@ -95,6 +95,15 @@ p { margin: 0 0 1rem; }
     radial-gradient(1.2px 1.2px at 92% 12%, #fff 50%, transparent 51%),
     radial-gradient(1px 1px at 46% 40%, #cdd7ff 50%, transparent 51%);
     opacity: .6; pointer-events: none; }
+.hero-tag { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin-bottom: 1.1rem; }
+.pill { display: inline-block; padding: .3rem .8rem; border: 1px solid rgb(245 185 66 / .45); border-radius: 999px; color: var(--accent); font-weight: 700; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; background: rgb(245 185 66 / .08); }
+.btn-gh { background: var(--surface); color: var(--text); border-color: var(--line); gap: .45rem; white-space: nowrap; }
+.btn-gh:hover { background: var(--surface2); color: #fff; border-color: #34437a; }
+.nav-links a.btn-gh { color: var(--text); }
+.nav-links a.btn-gh:hover { color: #fff; }
+.btn-gh .gh-stars { padding-left: .55rem; margin-left: .15rem; border-left: 1px solid var(--line); color: var(--accent-2); font-weight: 700; }
+.menu-panel a.btn-gh { margin-top: .3rem; }
+.repo-link { margin: .8rem 0 0; font-size: .9rem; }
 .hero .wrap { position: relative; display: grid; gap: 3rem; align-items: center; }
 .hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.6rem); font-weight: 800; letter-spacing: -.025em; margin-bottom: 1.1rem; }
 .hero h1 em { font-style: normal; color: var(--accent); }

@@ -21,12 +21,15 @@
     <section class="hero">
         <div class="wrap">
             <div>
-                <p class="eyebrow">{{ __('site.hero.eyebrow') }}</p>
+                <div class="hero-tag">
+                    <span class="pill">{{ __('site.hero.eyebrow') }}</span>
+                    @include('partials.github-button', ['class' => 'btn-sm'])
+                </div>
                 <h1>{{ __('site.hero.title') }}</h1>
                 <p class="sub">{{ __('site.hero.subtitle') }}</p>
                 <div class="actions">
                     <a class="btn btn-primary" href="{{ route('try') }}">{{ __('site.hero.cta_try') }} →</a>
-                    <a class="btn btn-ghost" href="{{ $github }}/nightguardian" rel="noopener">{{ __('site.hero.cta_github') }}</a>
+                    <a class="btn btn-ghost" href="#install">{{ __('site.nav.install') }}</a>
                 </div>
                 <p class="note">{{ __('site.hero.note') }}</p>
             </div>
@@ -150,12 +153,14 @@ docker compose up -d --build
 docker compose exec app php artisan \
   nightguardian:install --skip-migrate</pre>
                     <p style="margin-top:.8rem"><a href="{{ $github }}/nightguardian/blob/main/docs/deploy.md" rel="noopener">{{ __('site.install.guide') }} →</a></p>
+                    <p class="repo-link"><a href="{{ $github }}/nightguardian" rel="noopener">{{ __('site.install.repo_collector') }} →</a></p>
                 </article>
                 <article class="card">
                     <span class="num">2</span>
                     <h3>{{ $steps[1]['title'] }}</h3>
                     <p>{{ $steps[1]['text'] }}</p>
                     <pre class="code">composer require nightguardian/laravel</pre>
+                    <p class="repo-link"><a href="{{ $github }}/nightguardian-laravel" rel="noopener">{{ __('site.install.repo_sdk') }} →</a></p>
                 </article>
                 <article class="card">
                     <span class="num">3</span>
@@ -165,6 +170,7 @@ docker compose exec app php artisan \
 NIGHTGUARDIAN_TOKEN=ng_...
 
 php artisan nightguardian:test</pre>
+                    <p class="repo-link"><a href="{{ $github }}/nightguardian-laravel/blob/main/docs/configuration.md" rel="noopener">{{ __('site.install.repo_config') }} →</a></p>
                 </article>
             </div>
         </div>
