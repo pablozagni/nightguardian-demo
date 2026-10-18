@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51c5b47e30b0f328a4d33577acea9036",
+    "content-hash": "0542095035ce81415816e04dd675a324",
     "packages": [
         {
             "name": "brick/math",
@@ -2574,16 +2574,16 @@
         },
         {
             "name": "nightguardian/laravel",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablozagni/nightguardian-laravel.git",
-                "reference": "0d2bcd7dcde5805f3fda19e3124a9c0090b8770f"
+                "reference": "86959d3a2be60b11b014ed79e86a581ea077f8cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablozagni/nightguardian-laravel/zipball/0d2bcd7dcde5805f3fda19e3124a9c0090b8770f",
-                "reference": "0d2bcd7dcde5805f3fda19e3124a9c0090b8770f",
+                "url": "https://api.github.com/repos/pablozagni/nightguardian-laravel/zipball/86959d3a2be60b11b014ed79e86a581ea077f8cc",
+                "reference": "86959d3a2be60b11b014ed79e86a581ea077f8cc",
                 "shasum": ""
             },
             "require": {
@@ -2643,9 +2643,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pablozagni/nightguardian-laravel/issues",
-                "source": "https://github.com/pablozagni/nightguardian-laravel/tree/v2.0.1"
+                "source": "https://github.com/pablozagni/nightguardian-laravel/tree/v2.0.2"
             },
-            "time": "2026-10-18T17:00:05+00:00"
+            "time": "2026-10-18T18:39:40+00:00"
         },
         {
             "name": "nikic/php-parser",
