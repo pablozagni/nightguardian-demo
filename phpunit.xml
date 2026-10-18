@@ -37,6 +37,10 @@
         <env name="NIGHTGUARDIAN_URL" value="" force="true"/>
         <env name="NIGHTGUARDIAN_TOKEN" value="" force="true"/>
         <env name="DEMO_KEY" value="" force="true"/>
+        <env name="NIGHTGUARDIAN_SPONSOR_GITHUB_URL" value="" force="true"/>
+        <env name="NIGHTGUARDIAN_DONATE_MP_URL" value="" force="true"/>
+        <env name="DEMO_TRY_RATE_LIMIT" value="20" force="true"/>
+        <env name="DEMO_BURST_MAX" value="20" force="true"/>
         <env name="APP_DEBUG" value="false"/>
     </php>
 </phpunit>

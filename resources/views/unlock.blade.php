@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <title>NightGuardian demo</title>
-    @include('partials.styles')
-</head>
-<body>
-<main style="max-width: 26rem; padding-top: 4rem">
-    <h1><span aria-hidden="true">🌙</span> NightGuardian demo</h1>
-    <p class="lead">This demo is protected. Type the key to continue.</p>
-    <form method="post" action="{{ route('unlock') }}" class="card">
+@extends('layouts.site', ['title' => __('site.try.unlock_title').' — NightGuardian', 'noindex' => true])
+
+@section('body')
+<div class="center-box">
+    <p class="brand" style="margin-bottom:1rem">@include('partials.logo') NightGuardian</p>
+    <h1 style="font-size:1.5rem;margin-bottom:.4rem">{{ __('site.try.unlock_title') }}</h1>
+    <p class="muted">{{ __('site.try.unlock_text') }}</p>
+    <form method="post" action="{{ route('unlock') }}" class="tcard">
         @csrf
-        <label for="key">Key</label>
-        <input id="key" name="key" type="password" autofocus autocomplete="off" required style="width: 100%; padding: .55rem .7rem; margin: .3rem 0 1rem; border: 1px solid var(--line); border-radius: .4rem; background: transparent; color: inherit; font: inherit">
-        @isset($wrong)<p style="color: var(--danger)">That is not the key.</p>@endisset
-        <button class="button">Open the demo</button>
+        <label for="key">{{ __('site.try.unlock_key') }}</label>
+        <input id="key" name="key" type="password" autofocus autocomplete="off" required style="width:100%;margin:.3rem 0 1rem">
+        @isset($wrong)<p style="color:var(--danger)">{{ __('site.try.unlock_wrong') }}</p>@endisset
+        <button class="btn btn-primary">{{ __('site.try.unlock_button') }}</button>
     </form>
-</main>
-</body>
-</html>
+</div>
+@endsection
