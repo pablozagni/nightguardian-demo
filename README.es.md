@@ -86,8 +86,6 @@ Usá un proyecto descartable en tu colector: la demo crea issues y avisos reales
 - Los eventos se envían **después** de la respuesta, así que aparecen en el colector un instante después de apretar el
   botón. Si el colector está caído, el SDK los guarda en `storage/nightguardian/spool` y los envía luego;
   `nightguardian:status` lo muestra.
-- El SDK registra sus comandos Artisan solo en consola. La página ejecuta `nightguardian:status` y `nightguardian:deploy`
-  desde una petición web, por eso `AppServiceProvider` los registra también para la web.
 - Los tests (`vendor/bin/pest`) corren con el SDK apagado: nunca contactan a un colector.
 
 ## Licencia

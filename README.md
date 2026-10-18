@@ -88,8 +88,6 @@ Use a throwaway project in your collector: the demo creates real issues, alerts 
 
 - Events are sent **after** the response, so they appear in the collector a moment after you press a button. If the
   collector is down, the SDK keeps them in `storage/nightguardian/spool` and sends them later; `nightguardian:status` shows it.
-- The SDK registers its Artisan commands only in a console. The demo page runs `nightguardian:status` and
-  `nightguardian:deploy` from a web request, so `AppServiceProvider` registers them for web requests too.
 - The tests (`vendor/bin/pest`) run with the SDK switched off: they never contact a collector.
 
 ## License

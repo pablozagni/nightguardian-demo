@@ -1,1 +1,1 @@
-{"last_success_at":1792341710.239861,"last_drain_at":1792341663.084571,"last_failure_at":1792341593.600722,"last_error":"curl error 6: getaddrinfo() thread failed to start","sent_events":98,"failed_batches":1,"spooled_events":18}
+{"last_success_at":1792343307.207776,"last_failure_at":1792343298.078315,"last_error":"curl error 6: getaddrinfo() thread failed to start","last_drain_at":1792341663.084571,"sent_events":106,"failed_batches":3,"spooled_events":24}
